@@ -3,7 +3,7 @@ import tempfile
 from yt_dlp import YoutubeDL
 from yt_dlp.utils import sanitize_filename
 
-def baixar_audio_youtube(url: str) -> str:
+def yt_audio_download(url: str) -> str:
     temp_dir = tempfile.mkdtemp()
 
     ydl_opts = {
