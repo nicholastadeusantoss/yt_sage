@@ -7,7 +7,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def consultar_openai(contexto: str, pergunta: str) -> str:
     resposta = client.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": "Você é um assistente de vídeos do YouTube."},
             {"role": "user", "content": f"Contexto: {contexto}\nPergunta: {pergunta}"}
