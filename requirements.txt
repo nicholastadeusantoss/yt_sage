@@ -1,9 +1,10 @@
+fastapi
+uvicorn[standard]
 langchain
 langchain-community
 openai
-yt-dlp
-python-dotenv
-faster-whisper
-faiss-cpu
 tiktoken
-langchain-openai
+faiss-cpu
+yt-dlp
+faster-whisper
+python-dotenv

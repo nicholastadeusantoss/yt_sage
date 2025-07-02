@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YouTube RAG Assistant</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 10px;
+      width: 320px;
+    }
+    input, button, textarea {
+      width: 100%;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    textarea {
+      height: 60px;
+    }
+    #response {
+      margin-top: 10px;
+      max-height: 200px;
+      overflow-y: auto;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+    }
+    .msg {
+      margin-bottom: 8px;
+    }
+    .user {
+      font-weight: bold;
+      color: #333;
+    }
+    .bot {
+      margin-left: 10px;
+      color: #0077cc;
+    }
+    #loader {
+      display: none;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h3>1. Transcrever vídeo</h3>
+  <input type="text" id="videoUrl" placeholder="URL do YouTube" />
+  <button id="transcribeBtn">Transcrever</button>
+  <div id="loader">⏳ Transcrevendo...</div>
+
+  <h3>2. Chat com o vídeo</h3>
+  <textarea id="question" placeholder="Digite sua pergunta..."></textarea>
+  <button id="askBtn">Perguntar</button>
+
+  <button id="openFullChat">🗔 Abrir chat completo</button>
+
+  <div id="response"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

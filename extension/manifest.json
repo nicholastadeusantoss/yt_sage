@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube RAG Assistant",
+  "version": "1.0",
+  "description": "Faça perguntas sobre vídeos do YouTube com IA.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": ["http://localhost:8000/"]
+}

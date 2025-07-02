@@ -1,16 +1,18 @@
-import os
-from openai import OpenAI
-from dotenv import load_dotenv
+from langchain_community.embeddings import OpenAIEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_community.chat_models import ChatOpenAI
+from langchain_community.document_loaders import TextLoader
+from langchain.chains import RetrievalQA
+from langchain.schema import Document
 
-load_dotenv()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
-def ai_consulter(contexto: str, pergunta: str) -> str:
-    resposta = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-            {"role": "system", "content": "You're a Youtube assistant, I'll ask questions about the context of the video"},
-            {"role": "user", "content": f"Contexto: {contexto}\nPergunta: {pergunta}"}
-        ]
+def create_qa_chain(transcript_text: str):
+    doc = Document(page_content=transcript_text)
+    embeddings = OpenAIEmbeddings()
+    vectorstore = FAISS.from_documents([doc], embeddings)
+    retriever = vectorstore.as_retriever()
+    llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
+    return RetrievalQA.from_chain_type(
+        llm=llm,
+        retriever=retriever,
+        return_source_documents=True
     )
-    return resposta.choices[0].message.content

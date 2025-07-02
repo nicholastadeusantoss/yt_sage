@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat Completo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+    input, button, textarea {
+      width: 100%;
+      margin-top: 10px;
+      box-sizing: border-box;
+    }
+    textarea {
+      height: 80px;
+    }
+    #response {
+      margin-top: 15px;
+      max-height: 400px;
+      overflow-y: auto;
+      border-top: 1px solid #ccc;
+      padding-top: 15px;
+    }
+    .msg {
+      margin-bottom: 10px;
+    }
+    .user {
+      font-weight: bold;
+      color: #333;
+    }
+    .bot {
+      margin-left: 10px;
+      color: #0077cc;
+    }
+    #loader {
+      display: none;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>YouTube RAG Assistant (Chat Completo)</h2>
+
+  <input type="text" id="videoUrl" placeholder="URL do YouTube" />
+  <button id="transcribeBtn">Transcrever</button>
+  <div id="loader">⏳ Transcrevendo...</div>
+
+  <textarea id="question" placeholder="Digite sua pergunta..."></textarea>
+  <button id="askBtn">Perguntar</button>
+
+  <div id="response"></div>
+
+  <script src="chat.js"></script>
+</body>
+</html>
