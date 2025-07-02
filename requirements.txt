@@ -1,4 +1,9 @@
-python-dotenv
+langchain
+langchain-community
 openai
 yt-dlp
+python-dotenv
 faster-whisper
+faiss-cpu
+tiktoken
+langchain-openai
